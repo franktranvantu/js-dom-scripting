@@ -86,30 +86,37 @@ document.addEventListener('DOMContentLoaded', () => {
       const button = event.target;
       const li = button.parentNode;
       const ul = li.parentNode;
+      const action = button.textContent.toLowerCase();
 
-      if (button.textContent === 'Remove') {
-        ul.removeChild(li);
-      } else if (button.textContent === 'Edit') {
-        const span = li.firstElementChild;
+      const nameActions = {
+        remove: () => {
+          ul.removeChild(li);
+        },
+        edit: () => {
+          const span = li.firstElementChild;
 
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.value = span.textContent;
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.value = span.textContent;
 
-        li.insertBefore(input, span);
-        li.removeChild(span);
+          li.insertBefore(input, span);
+          li.removeChild(span);
 
-        button.textContent = 'Save';
-      } else if (button.textContent === 'Save') {
-        const input = li.firstElementChild;
-        const span = document.createElement('span');
-        span.textContent = input.value;
+          button.textContent = 'Save';
+        },
+        save: () => {
+          const input = li.firstElementChild;
+          const span = document.createElement('span');
+          span.textContent = input.value;
 
-        li.insertBefore(span, input);
-        li.removeChild(input);
+          li.insertBefore(span, input);
+          li.removeChild(input);
 
-        button.textContent = 'Edit';
+          button.textContent = 'Edit';
+        }
       }
+      // select and run action in button's name
+      nameActions[action]();
     }
   });
 });
