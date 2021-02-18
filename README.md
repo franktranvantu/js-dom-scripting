@@ -1,5 +1,5 @@
-Use JavaScript to build an RSVP web application. 
+It's party time! You're planning a party, and you've sent invitations out. 
 
-Many of the features you'll build are common to other web applications. 
+Now as the RSVP's come in, you need a way to keep track of who's coming.
 
-When you're done programing the app, you'll have the basics you will need to build any client-side web app.
+Let's look at the app we'll be building to manage that for us.
