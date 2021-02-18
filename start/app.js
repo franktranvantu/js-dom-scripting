@@ -16,25 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function createLI(text) {
     const li = document.createElement('li');
+
     const span = document.createElement('span');
     span.textContent = text;
+    li.appendChild(span);
 
     const label = document.createElement('label');
     label.textContent = 'Confirmed';
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
+    label.appendChild(checkbox);
+    li.appendChild(label);
 
     const editButton = document.createElement('button');
     editButton.textContent = 'Edit';
+    li.appendChild(editButton);
 
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
-
-    label.appendChild(checkbox);
-    li.appendChild(span);
-    li.appendChild(label);
-    li.appendChild(editButton);
     li.appendChild(removeButton);
 
     return li;
